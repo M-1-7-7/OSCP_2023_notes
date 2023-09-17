@@ -1,6 +1,6 @@
 # Windows Priv Esc (IF WE DONT HAVE WINPEAS/JAWS)
 
-### Severl Key artifact to identify:
+## Severl Key artifact to identify:
 
 - Username and hostname:
     - `whoami`
@@ -23,7 +23,7 @@
     - `Get-Process`
 
 
-### Artifacts to keep an eye out for:
+## Artifacts to keep an eye out for:
 
 **KeePass Password Manager:**
 `Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue` to get all password manager databases stored in C:\
@@ -40,4 +40,12 @@
 **my.ini file:**
 if we have the privilage we could see plain txt users and passwords with this command `type C:\xampp\mysql\bin\my.ini`
 
+## Powershell Artifacts:
 
+**Powershell History** 
+- `Get-History` will get command history for current user
+- `(Get-PSReadlineOption).HistorySavePath` will get the history path
+- `type C:\Users\dave\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt` another history command to try 
+- If you notice any txt files or credentials being enterd into locations/artifacts be sure to investigate.
+
+  
