@@ -73,9 +73,17 @@ Q3) Connect to CLIENTWK221 (VM #2) via RDP as user mac with the password IAmTheG
 
 **==== 16.1.5 ====**  
 
-Q1) Follow the steps above and obtain an interactive shell as daveadmin on CLIENTWK220 (VM #1). Enter the flag, which can be found on the desktop.
+Q1) Follow the steps from this section and examine the output headlined Checking for DPAPI Credential Files. Enter one of the MasterKeys as answer.
+  - flag is `7ba528f7-4e73-48a3-8a67-e5680688c9ff`
   - Use VM #1
+  - nc into the machine `nc 192.168.190.220 4444`
+  - download mimikatz from kali web server and find `DPAPI Credential Files` and it is the `MasterKey` field
 
+Q2) Download a precompiled version of Seatbelt or compile it yourself. To find a precompiled version of Seatbelt, you can enter the search term compiled seatbelt github download in a search engine. Transfer the binary to VM #1 and launch it with the option -group=all. Find a section named InstalledProducts and locate the entry for XAMPP. Enter the value of DisplayVersion as answer to this exercise.
+  - flag is `7.4.29-1`
+  - Use VM #1
+  - follow what it says
+    
 **==== 16.2.1 ====**  
 
 Q1) Connect to the bind shell (port 4444) on CLIENTWK220 (VM #1) and follow the steps from this section. Find the flag on the desktop of backupadmin.
