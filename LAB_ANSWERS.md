@@ -2,7 +2,8 @@
 
 ### Chapter 16 - Windows Privilege Escalation
 
-**16.1.2**
+**==== 16.1.2 ====**
+
 Q1) Check the users of the local group Remote Management Users on CLIENTWK220 (VM #1). Enter a user which is in this group apart from steve.
   - Use VM #1
   - netcat to machnine `nc <machine ip> 4444`
