@@ -32,7 +32,7 @@
 `Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue` Searching for sensitive information in XAMPP directory
 
 **Search for sesitive files and types:**
-`Get-ChildItem -Path C:\Users\dave\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue` Searching for text files and password manager databases in the home directory of dave
+`Get-ChildItem -Path C:\Users\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx,*.ini -File -Recurse -ErrorAction SilentlyContinue` Searching for text files and password manager databases in the home directory of dave
 
 **ASDF files:**
 `cat Desktop\asdf.txt` is a comand line interface tool adn if you see `asdf.txt` we may find valuable information. 
